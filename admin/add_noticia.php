@@ -25,7 +25,7 @@ if (isset($_POST['form_titulo']) && isset($_POST['form_texto'])) {
         $mensagem = "Notícia inserida com sucesso!";
     } else {
         $mensagem = "Erro ao inserir notícia!";
-    
+
     }
 }
 
@@ -34,34 +34,50 @@ $titulo = "Adicionar Notícia";
 include_once __DIR__ . "/header_dash.php";
 ?>
 
-<div class="container">
+<?php
+include_once __DIR__ . "/menu.php";
+?>
+<div class="container p-3">
 
-    <?php
-    include_once __DIR__ . "/menu.php";
-    ?>
     <div>
-        <h1>Adicionar Notícia</h1>
-        <?php
-        if (isset($mensagem)) {
-            echo "<p>$mensagem</p>";
-        }
-        ?>
 
-        <form action="" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="titulo" class="form-label">
-                    <input class="form-control" type="text" name="form_titulo" placeholder="Título da notícia"
-                        id="titulo">
-                </label>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Adicionar Notícia</h3>
+                <p>A página de adicionar notícia é uma ferramenta que permite aos usuários criar e publicar notícias em
+                    um site. Nesta página, o usuário pode inserir o título, o conteúdo da notícia. O usuário também pode visualizar a notícia antes de publicá-la ou salvá-la como
+                    rascunho. A página de adicionar notícia facilita a comunicação e a divulgação de informações
+                    relevantes para o público-alvo do site.
+
+
+                </p>
+                <?php
+                if (isset($mensagem)) {
+                    echo "<p>$mensagem</p>";
+                }
+                ?>
             </div>
-            <div>
-                <label for="texto" class="form-label">
-                    <textarea class="form-control" name="form_texto" id="texto" cols="30" rows="10"
-                        placeholder="Texto da notícia"></textarea>
-                </label>
+            <div class="col-md-6">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div>
+                        <label for="titulo" class="form-label w-100">
+                            <input class="form-control" type="text" name="form_titulo" placeholder="Título da notícia"
+                                id="titulo">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="texto" class="form-label w-100">
+                            <textarea class="form-control" name="form_texto" id="texto" cols="30" rows="10"
+                                placeholder="Texto da notícia"></textarea>
+                        </label>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                </form>
+
+
             </div>
-            <input type="submit" class="btn btn-primary" value="Enviar">
-        </form>
+        </div>
+
     </div>
 
 </div>
