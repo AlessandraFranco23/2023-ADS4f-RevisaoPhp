@@ -29,7 +29,42 @@ include_once __DIR__ . "/../config/connection.php";
 
             <ul class="list-group list-group-numbered">
                 <!-- Começo a listagem -->
+                <?php
 
+                $sql = "SELECT * FROM noticias";
+                $resultado = $pdo->query($sql);
+                $resultado = $resultado->fetchAll(PDO::FETCH_ASSOC);
+                if ($resultado) {
+                    foreach ($resultado as $noticia) :
+                ?>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <!-- Título do item -->
+                            <div class="ms-2 me-auto">
+                                <?php echo $noticia['titulo']; ?>
+                            </div>
+                            <!-- sistema de botões -->
+                            <ul class="list-inline m-0">
+                                <!-- Editar -->
+                                <li class="list-inline-item">
+                                    <a href="edit_noticia.php?idNot=<?php echo $noticia['id']; ?>" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></a>
+                                </li>
+                                <!-- Excluir -->
+                                <li class="list-inline-item">
+                                    <a href="delete_noticia.php?idNot=<?php echo $noticia['id']; ?>" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                <?php
+                    endforeach;
+                } else {
+                    echo "<li class='list-group-item d-flex justify-content-between align-items-start'>";
+                    echo "<div class='ms-2 me-auto'>";
+                    echo "<div class='fw-bold'>Nenhuma notícia cadastrada</div>";
+                    echo "</div>";
+                    echo "</li>";
+                }
+
+                ?>
                 <!-- Inicio gabarito item -->
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <!-- Título do item -->
