@@ -25,20 +25,14 @@ if (isset($_POST['form_titulo']) && isset($_POST['form_texto'])) {
         $mensagem = "Notícia inserida com sucesso!";
     } else {
         $mensagem = "Erro ao inserir notícia!";
-
     }
 }
-
 
 $titulo = "Adicionar Notícia";
 include_once __DIR__ . "/header_dash.php";
 ?>
-
-
 <div class="container p-3">
-
     <div>
-
         <div class="row">
             <div class="col-md-6">
                 <h3>Adicionar Notícia</h3>
@@ -59,14 +53,12 @@ include_once __DIR__ . "/header_dash.php";
                 <form action="" method="post" enctype="multipart/form-data">
                     <div>
                         <label for="titulo" class="form-label w-100">
-                            <input class="form-control" type="text" name="form_titulo" placeholder="Título da notícia"
-                                id="titulo">
+                            <input class="form-control" type="text" name="form_titulo" placeholder="Título da notícia" id="titulo">
                         </label>
                     </div>
                     <div>
                         <label for="texto" class="form-label w-100">
-                            <textarea class="form-control" name="form_texto" id="texto" cols="30" rows="10"
-                                placeholder="Texto da notícia"></textarea>
+                            <textarea class="form-control" name="form_texto" id="texto" cols="30" rows="10" placeholder="Texto da notícia"></textarea>
                         </label>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Enviar">
