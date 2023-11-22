@@ -34,9 +34,7 @@ $titulo = "Adicionar Notícia";
 include_once __DIR__ . "/header_dash.php";
 ?>
 
-<?php
-include_once __DIR__ . "/menu.php";
-?>
+
 <div class="container p-3">
 
     <div>
