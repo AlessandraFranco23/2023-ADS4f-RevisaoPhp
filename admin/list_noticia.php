@@ -33,8 +33,8 @@ include_once __DIR__ . "/../config/connection.php";
 
                 $sql = "SELECT * FROM noticias";
                 $resultado = $pdo->query($sql);
-                $resultado = $resultado->fetchAll(PDO::FETCH_ASSOC);
-                if ($resultado) {
+                if ($resultado->rowCount() > 0) {
+                    $resultado = $resultado->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($resultado as $noticia) :
                 ?>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -65,26 +65,6 @@ include_once __DIR__ . "/../config/connection.php";
                 }
 
                 ?>
-                <!-- Inicio gabarito item -->
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <!-- Título do item -->
-                    <div class="ms-2 me-auto">
-                        Item
-                    </div>
-                    <!-- sistema de botões -->
-                    <ul class="list-inline m-0">
-                        <!-- Editar -->
-                        <li class="list-inline-item">
-                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil"></i></button>
-                        </li>
-                        <!-- Excluir -->
-                        <li class="list-inline-item">
-                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
-                        </li>
-                    </ul>
-                </li>
-                <!-- fim gabarito item -->
-
             </ul>
 
 
