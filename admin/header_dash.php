@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- exibe o título da página  -->
     <title>
-        <!-- exibe o título da página  -->
         <?php
         // verifica se a variável $titulo foi definida antes do include deste arquivo
         echo (isset($titulo)) ? $titulo : "Painel";
@@ -23,5 +24,6 @@
 <body>
     <?php
     // inclui o menu
-    include_once __DIR__ . "/menu.php";
+    if (!isset($no_menu))
+        include_once __DIR__ . "/menu.php";
     ?>

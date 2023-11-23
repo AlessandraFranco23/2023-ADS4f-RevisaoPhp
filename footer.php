@@ -5,7 +5,7 @@
                 Todos os direitos reservados
             </div>
             <div class="col-12 text-center">
-                <a href="./admin/" style="font-size: 8px;">Administrar</a>
+                <a href="./admin/" class="text-reset text-decoration-none" style="font-size: 8px;">Administrar</a>
             </div>
         </div>
     </div>
