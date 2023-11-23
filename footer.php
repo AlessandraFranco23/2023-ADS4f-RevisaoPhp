@@ -4,6 +4,9 @@
             <div class="col-12 text-center">
                 Todos os direitos reservados
             </div>
+            <div class="col-12 text-center">
+                <a href="./admin/" style="font-size: 8px;">Administrar</a>
+            </div>
         </div>
     </div>
 </footer>
