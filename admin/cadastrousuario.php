@@ -20,7 +20,7 @@ if (isset($_POST['form_email']) && isset($_POST['form_pass'])) {
     $pass = md5($pass . $chave);
 
     // cria a query de consulta ao banco de dados
-    $sql = "SELECT * FROM usuarios WHERE email = :email AND senha = :pass";
+    $sql = "INSERT into usuarios (email, senha) VALUES (:email, :pass)";
     // prepara a query do banco de dados em PDO
     $pdo = $pdo->prepare($sql);
     // executa a query com os parâmetros
@@ -46,7 +46,7 @@ include_once __DIR__ . "/header_dash.php";
 <div class="container-fluid bg bg-gradient bg-primary py-5 d-flex justify-content-center align-items-center" style="min-height:100vh">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-6 text-light">
-            <h1>Administrador</h1>
+            <h1>Cadastrar Administrador</h1>
             <p>Seja bem vindo ao painel de controle do site.</p>
         </div>
         <div class="col-md-6">
@@ -67,10 +67,6 @@ include_once __DIR__ . "/header_dash.php";
                     </div>
                     <!-- inclui o input de botão de envio do formulário -->
                     <input type="submit" class="btn btn-success" value="Entrar">
-
-                    <div>
-                        <a href="cadastrousuario.php" class="">Não possui uma conta?</a>
-                    </div>
                 </form>
             </div>
         </div>

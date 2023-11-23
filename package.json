@@ -4,7 +4,6 @@
   "description": "Revisao das aulas de PHP e desenvolvimento web",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch ./src/scss/main.scss:./assets/css/main.css"
   },
   "repository": {

@@ -9,9 +9,10 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-
+// define o título da página
 $titulo = "Painel de Controle - Listar Notícias";
 include_once __DIR__ . "/header_dash.php";
+// inclui o arquivo de conexão com o banco de dados
 include_once __DIR__ . "/../config/connection.php";
 ?>
 
@@ -30,13 +31,21 @@ include_once __DIR__ . "/../config/connection.php";
             <ul class="list-group list-group-numbered">
                 <!-- Começo a listagem -->
                 <?php
-
+                // cria a query de consulta ao banco de dados
                 $sql = "SELECT * FROM noticias";
+                // executa a consulta e armazena o resultado em 
                 $resultado = $pdo->query($sql);
-                if ($resultado->rowCount() > 0) {
+                // verifica se houve resultados
+                // note que aqui estamos usando o if e else com :
+                if ($resultado->rowCount() > 0) :
+                    // transforma o resultado em um array associativo
                     $resultado = $resultado->fetchAll(PDO::FETCH_ASSOC);
+                    // percorre o array associativo com o foreach
+                    // note que aqui estamos usando o foreach com :
+                    // com isto vamos precisar usar endforeach; no final
                     foreach ($resultado as $noticia) :
                 ?>
+                        <!-- inicio do looping -->
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <!-- Título do item -->
                             <div class="ms-2 me-auto">
@@ -54,23 +63,22 @@ include_once __DIR__ . "/../config/connection.php";
                                 </li>
                             </ul>
                         </li>
+                        <!-- fim do looping -->
                 <?php
+                    // finaliza o foreach inicado com ":"
                     endforeach;
-                } else {
+
+                // note que aqui estamos usando o else do if com ":" e endif; no final
+                else :
                     echo "<li class='list-group-item d-flex justify-content-between align-items-start'>";
                     echo "<div class='ms-2 me-auto'>";
                     echo "<div class='fw-bold'>Nenhuma notícia cadastrada</div>";
                     echo "</div>";
                     echo "</li>";
-                }
-
+                endif;
                 ?>
             </ul>
-
-
         </div>
     </div>
-
     <?php
-
     include __DIR__ . "/footer_dash.php";
