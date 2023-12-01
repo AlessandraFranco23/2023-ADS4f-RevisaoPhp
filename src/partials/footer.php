@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                Todos os direitos reservados
+                Trabalho Final
             </div>
             <div class="col-12 text-center">
-                <a href="./admin/" class="text-reset text-decoration-none" style="font-size: 8px;">Administrar</a>
+                <a href="./admin/" class="text-reset text-decoration-none" style="font-size: 8px;">Alessandra Franco</a>
             </div>
         </div>
     </div>

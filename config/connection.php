@@ -2,10 +2,12 @@
 
 $hostname = "localhost";
 $user = "root";
-$password = "";
-$database = "aularevisao";
-
-$chave = "zXW3x14WYB"; // SELECT MD5 (CONCAT ('SENHADOUSUARIO', 'zXW3x14WYB')) AS md5_string;
+$password = "senac2023@Alessandra";
+$database = "aeo";
 
 
-$pdo = new PDO("mysql:host=$hostname;dbname=$database", $user, $password);
+try {
+    $pdo = new PDO("mysql:host=$hostname;dbname=$database", $user, $password);
+} catch (\Throwable $th) {
+    die('Erro de conexão com o banco de dados: ' . $th->getMessage());
+}
